@@ -1,0 +1,19 @@
+{
+    "name": "vojtasvoboda/oc-errorlogger-plugin",
+    "description": "Sends an error from your OctoberCMS application directly to email, HipChat, Slack, NewRelic and more.",
+    "homepage": "https://github.com/vojtasvoboda/oc-errorlogger-plugin",
+    "type": "october-plugin",
+    "keywords": ["october", "plugin", "logger", "monolog", "syslog", "slack", "hipchat", "newrelic"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Vojta Svoboda",
+            "email": "vojtasvoboda.cz@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=5.4"
+    },
+    "minimum-stability": "dev"
+}

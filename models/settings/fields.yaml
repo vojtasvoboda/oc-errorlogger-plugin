@@ -1,0 +1,35 @@
+tabs:
+    fields:
+
+        nativemailer_enabled:
+            tab: vojtasvoboda.errorlogger::lang.nativemailer.tab.label
+            type: checkbox
+            label: vojtasvoboda.errorlogger::lang.nativemailer.enabled.label
+        nativemailer_email:
+            tab: vojtasvoboda.errorlogger::lang.nativemailer.tab.label
+            label: vojtasvoboda.errorlogger::lang.nativemailer.email.label
+            required: true
+            commentAbove: vojtasvoboda.errorlogger::lang.nativemailer.email.comment
+            default: '@'
+            trigger:
+                    action: show
+                    field: nativemailer_enabled
+                    condition: checked
+        nativemailer_level:
+            tab: vojtasvoboda.errorlogger::lang.nativemailer.tab.label
+            type: dropdown
+            label: vojtasvoboda.errorlogger::lang.nativemailer.level.label
+            commentAbove: vojtasvoboda.errorlogger::lang.nativemailer.level.comment
+            trigger:
+                    action: show
+                    field: nativemailer_enabled
+                    condition: checked
+        nativemailer_debug:
+            tab: vojtasvoboda.errorlogger::lang.nativemailer.tab.label
+            type: checkbox
+            label: vojtasvoboda.errorlogger::lang.nativemailer.debug.label
+            commentAbove: vojtasvoboda.errorlogger::lang.nativemailer.debug.comment
+            trigger:
+                    action: show
+                    field: nativemailer_enabled
+                    condition: checked
