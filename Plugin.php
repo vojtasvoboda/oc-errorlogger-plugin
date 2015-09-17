@@ -59,6 +59,8 @@ class Plugin extends PluginBase
 		$monolog = Log::getMonolog();
 
         $this->setNativeMailerHandler($monolog);
+        $this->setSlackHandler($monolog);
+        $this->setSyslogHandler($monolog);
 	}
 
     /**
@@ -95,6 +97,55 @@ class Plugin extends PluginBase
 
         return $monolog;
 	}
+
+    /**
+     * Set handler for Slack messaging app
+     *
+     * @param $monolog
+     *
+     * @return mixed
+     */
+    private function setSlackHandler($monolog)
+    {
+        $required = ['slack_enabled', 'slack_token'];
+        if ( !$this->checkRequiredFields($required) ) {
+            return $monolog;
+        }
+
+        $token = Settings::get('slack_token');
+        $channel = Settings::get('slack_channel', 'random');
+        $username = Settings::get('slack_username', 'error-bot');
+        $attachment = Settings::get('slack_attachment', false);
+        $level = Settings::get('slack_level', 100);
+        $handler = new SlackHandler($token, $channel, $username, $attachment, null, $level, $bubble = false);
+        $monolog->pushHandler($handler);
+
+        return $monolog;
+    }
+
+    /**
+     * Set handler for Syslog
+     *
+     * @param $monolog
+     *
+     * @return mixed
+     */
+    private function setSyslogHandler($monolog)
+    {
+        $required = ['syslog_enabled', 'syslog_ident', 'syslog_facility'];
+        if ( !$this->checkRequiredFields($required) ) {
+            return $monolog;
+        }
+
+        $ident = Settings::get('syslog_ident');
+        $facility = Settings::get('syslog_facility');
+        $level = Settings::get('syslog_level', 100);
+        $bubble = true;
+        $handler = new SyslogHandler($ident, $facility, $level, $bubble);
+        $monolog->pushHandler($handler);
+
+        return $handler;
+    }
 
     /**
      * Check each required field if exist and not empty

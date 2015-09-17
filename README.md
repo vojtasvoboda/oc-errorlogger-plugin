@@ -17,9 +17,9 @@ Immediately sends an error from your OctoberCMS application to email, HipChat, M
 
 ## Services
 
-_Available:_ Mailer handler.
+_Available:_ Mailer handler, Slack handler and Syslog handler.
 
-_Waiting for implementation:_ Slack, HipChat, Mandrill, NewRelic, Syslog.
+_Waiting for implementation:_ HipChat, Mandrill, NewRelic and more.
 
 **Feel free to send pullrequest!**
 
@@ -28,3 +28,11 @@ _Waiting for implementation:_ Slack, HipChat, Mandrill, NewRelic, Syslog.
 ### Mailer handler
 
 Just fill your email and save.
+
+### Slack handler
+
+Get your own API key at https://api.slack.com/web. Select whether you want to sent notification to some channel or as direct message.
+
+### Syslog handler
+
+Just enable handler and fill Ident and Facility.

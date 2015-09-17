@@ -18,10 +18,24 @@ class Settings extends Model
 	public $settingsFields = 'fields.yaml';
 
 	public $rules = [
-		'nativemailer_email' => 'email',
+		// 'nativemailer_email' => 'email',
 	];
 
+    public $attributeNames = [
+        'nativemailer_email' => 'Developer email',
+    ];
+
     public static function getNativemailerLevelOptions()
+    {
+        return self::getErrorLevelOptions();
+    }
+
+    public static function getSlackLevelOptions()
+    {
+        return self::getErrorLevelOptions();
+    }
+
+    public static function getSyslogLevelOptions()
     {
         return self::getErrorLevelOptions();
     }
