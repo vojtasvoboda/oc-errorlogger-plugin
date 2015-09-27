@@ -7,19 +7,19 @@ use October\Rain\Database\Traits\Validation as ValidationTrait;
 
 class Settings extends Model
 {
-	use ValidationTrait;
+    use ValidationTrait;
 
-	public $implement = ['System.Behaviors.SettingsModel'];
+    public $implement = ['System.Behaviors.SettingsModel'];
 
-	// A unique code
-	public $settingsCode = 'vojtasvoboda_errorlogger_settings';
+    // A unique code
+    public $settingsCode = 'vojtasvoboda_errorlogger_settings';
 
-	// Reference to field configuration
-	public $settingsFields = 'fields.yaml';
+    // Reference to field configuration
+    public $settingsFields = 'fields.yaml';
 
-	public $rules = [
-		// 'nativemailer_email' => 'email',
-	];
+    public $rules = [
+        // 'nativemailer_email' => 'email',
+    ];
 
     public $attributeNames = [
         'nativemailer_email' => 'Developer email',
