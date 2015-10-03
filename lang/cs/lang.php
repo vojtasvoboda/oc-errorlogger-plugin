@@ -6,7 +6,7 @@ return [
         'description' => 'Zasílání chyb na e-mail, HipChat, Mandrill, NewRelic, Slack, Syslog, a další.'
     ],
     'settings' => [
-        'label' => 'Error logger',
+        'label' => 'Zasílání chyb',
         'description' => 'Nastavení služeb, e-mailů a API klíčů.',
     ],
 

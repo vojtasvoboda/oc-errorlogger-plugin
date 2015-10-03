@@ -3,7 +3,7 @@ tabs:
 
         nativemailer_enabled:
             tab: vojtasvoboda.errorlogger::lang.nativemailer.tab.label
-            type: checkbox
+            type: switch
             label: vojtasvoboda.errorlogger::lang.nativemailer.enabled.label
         nativemailer_email:
             tab: vojtasvoboda.errorlogger::lang.nativemailer.tab.label
@@ -36,7 +36,7 @@ tabs:
 
         slack_enabled:
             tab: vojtasvoboda.errorlogger::lang.slack.tab.label
-            type: checkbox
+            type: switch
             label: vojtasvoboda.errorlogger::lang.slack.enabled.label
         slack_token:
             tab: vojtasvoboda.errorlogger::lang.slack.tab.label
@@ -86,7 +86,7 @@ tabs:
 
         syslog_enabled:
             tab: vojtasvoboda.errorlogger::lang.syslog.tab.label
-            type: checkbox
+            type: switch
             label: vojtasvoboda.errorlogger::lang.syslog.enabled.label
         syslog_ident:
             tab: vojtasvoboda.errorlogger::lang.syslog.tab.label
