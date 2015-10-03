@@ -13,9 +13,10 @@ use Monolog\Logger;
 use System\Classes\PluginBase;
 
 /**
- * api Plugin Information File
+ * Error Logger Plugin Information File
  */
-class Plugin extends PluginBase {
+class Plugin extends PluginBase
+{
     /**
      * Returns information about this plugin.
      *
@@ -33,21 +34,27 @@ class Plugin extends PluginBase {
 
     public function registerSettings()
     {
-        $user = BackendAuth::getUser();
-        if ($user->hasAccess('vojtasvoboda.errorlogger.*')) {
-            return [
-                'config' => [
-                    'label'       => 'vojtasvoboda.errorlogger::lang.settings.label',
-                    'category'    => 'system::lang.system.categories.system',
-                    'icon'        => 'icon-bug',
-                    'description' => 'vojtasvoboda.errorlogger::lang.settings.description',
-                    'class'       => 'VojtaSvoboda\ErrorLogger\Models\Settings',
-                    'order'       => 610,
-                ]
-            ];
-        }
+        return [
+            'config' => [
+                'label'       => 'vojtasvoboda.errorlogger::lang.settings.label',
+                'category'    => 'system::lang.system.categories.system',
+                'icon'        => 'icon-bug',
+                'description' => 'vojtasvoboda.errorlogger::lang.settings.description',
+                'class'       => 'VojtaSvoboda\ErrorLogger\Models\Settings',
+                'permissions' => ['vojtasvoboda.errorlogger.*'],
+                'order'       => 610,
+            ]
+        ];
+    }
 
-        return [];
+    public function registerPermissions()
+    {
+        return [
+            'vojtasvoboda.errorlogger.*' => [
+                'tab'   => 'vojtasvoboda.errorlogger::lang.permissions.tab',
+                'label' => 'vojtasvoboda.errorlogger::lang.permissions.all.label'
+            ]
+        ];
     }
 
     /**

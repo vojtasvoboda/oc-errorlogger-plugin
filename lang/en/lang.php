@@ -9,6 +9,12 @@ return [
 		'label' => 'Error logger',
 		'description' => 'Set notification services, e-mails and API keys.',
 	],
+    'permissions' => [
+        'tab' => 'Error logger',
+        'all' => [
+            'label' => 'Error sending and notifications management'
+        ]
+    ],
 
     'nativemailer' => [
         'tab' => [

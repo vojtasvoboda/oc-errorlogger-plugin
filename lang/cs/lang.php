@@ -9,6 +9,12 @@ return [
         'label' => 'Zasílání chyb',
         'description' => 'Nastavení služeb, e-mailů a API klíčů.',
     ],
+    'permissions' => [
+        'tab' => 'Error logger',
+        'all' => [
+            'label' => 'Správa zasílání chyb'
+        ]
+    ],
 
     'nativemailer' => [
         'tab' => [
