@@ -15,9 +15,9 @@ Immediately sends an error from your OctoberCMS application to email, HipChat, M
 
 ## Services
 
-_Available:_ Mailer handler, Slack handler and Syslog handler.
+_Available:_ Mailer handler, Slack handler, Syslog handler and New Relic handler.
 
-_Waiting for implementation:_ HipChat, Mandrill, NewRelic and more.
+_Waiting for implementation:_ CouchDB, Cube, ElasticSearch, FirePHP, Flowdock, HipChat, IFTTT, Mandrill, MongoDB , Redis and more.
 
 **Feel free to send pullrequest!**
 
