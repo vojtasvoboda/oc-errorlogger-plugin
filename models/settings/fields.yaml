@@ -115,3 +115,26 @@ tabs:
                     action: show
                     field: syslog_enabled
                     condition: checked
+
+        newrelic_enabled:
+            tab: vojtasvoboda.errorlogger::lang.newrelic.tab.label
+            type: switch
+            label: vojtasvoboda.errorlogger::lang.newrelic.enabled.label
+        newrelic_appname:
+            tab: vojtasvoboda.errorlogger::lang.newrelic.tab.label
+            label: vojtasvoboda.errorlogger::lang.newrelic.appname.label
+            required: true
+            commentAbove: vojtasvoboda.errorlogger::lang.newrelic.appname.comment
+            trigger:
+                    action: show
+                    field: newrelic_enabled
+                    condition: checked
+        newrelic_level:
+            tab: vojtasvoboda.errorlogger::lang.newrelic.tab.label
+            type: dropdown
+            label: vojtasvoboda.errorlogger::lang.newrelic.level.label
+            commentAbove: vojtasvoboda.errorlogger::lang.newrelic.level.comment
+            trigger:
+                    action: show
+                    field: newrelic_enabled
+                    condition: checked

@@ -40,6 +40,11 @@ class Settings extends Model
         return self::getErrorLevelOptions();
     }
 
+    public static function getNewrelicLevelOptions()
+    {
+        return self::getErrorLevelOptions();
+    }
+
     public static function getErrorLevelOptions()
     {
         return [

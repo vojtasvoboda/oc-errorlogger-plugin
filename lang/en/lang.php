@@ -85,5 +85,22 @@ return [
             'label' => 'Logging level',
             'comment' => 'The minimum logging level at which this handler will be triggered'
         ],
+    ],
+
+    'newrelic' => [
+        'tab' => [
+            'label' => 'New Relic'
+        ],
+        'enabled' => [
+            'label' => 'Enable New Relic notification'
+        ],
+        'appname' => [
+            'label' => 'Application name',
+            'comment' => 'Name of the New Relic application that will receive notifications'
+        ],
+        'level' => [
+            'label' => 'Logging level',
+            'comment' => 'The minimum logging level at which this handler will be triggered'
+        ],
     ]
 ];

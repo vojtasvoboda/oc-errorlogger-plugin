@@ -85,5 +85,22 @@ return [
             'label' => 'Úroveň logování',
             'comment' => 'Minimální úroveň logování která bude zachycena a odeslána na e-mail'
         ],
+    ],
+
+    'newrelic' => [
+        'tab' => [
+            'label' => 'New Relic'
+        ],
+        'enabled' => [
+            'label' => 'Zapnout New Relic notifikace'
+        ],
+        'appname' => [
+            'label' => 'Název aplikace',
+            'comment' => 'Název aplikace (appname), která bude dostávat chybové hlášky'
+        ],
+        'level' => [
+            'label' => 'Úroveň logování',
+            'comment' => 'Minimální úroveň logování která bude zachycena a odeslána na e-mail'
+        ],
     ]
 ];

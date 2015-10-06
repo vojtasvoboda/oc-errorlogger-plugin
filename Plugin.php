@@ -8,6 +8,7 @@ use Log;
 use VojtaSvoboda\ErrorLogger\Models\Settings;
 use Monolog\Formatter\LineFormatter;
 use Monolog\Handler\NativeMailerHandler;
+use Monolog\Handler\NewRelicHandler;
 use Monolog\Handler\SlackHandler;
 use Monolog\Logger;
 use System\Classes\PluginBase;
@@ -67,6 +68,7 @@ class Plugin extends PluginBase
         $this->setNativeMailerHandler($monolog);
         $this->setSlackHandler($monolog);
         $this->setSyslogHandler($monolog);
+        $this->setNewrelicHandler($monolog);
     }
 
     /**
@@ -74,7 +76,7 @@ class Plugin extends PluginBase
      *
      * @param $monolog
      *
-     * @return mixed
+     * @return Logger
      */
     private function setNativeMailerHandler($monolog)
     {
@@ -93,8 +95,7 @@ class Plugin extends PluginBase
         $subject = Config::get('app.url') . ' - error report';
         $from    = Config::get('mail.from.address');
         $level   = Settings::get('nativemailer_level', 100);
-        $bubble  = false;
-        $handler = new NativeMailerHandler($email, $subject, $from, $level, $bubble);
+        $handler = new NativeMailerHandler($email, $subject, $from, $level);
         /*
         $formater = new LineFormatter("[%datetime%] %channel%.%level_name%: %message% %context% %extra%\n");
         $handler->setFormatter($formater);
@@ -109,7 +110,7 @@ class Plugin extends PluginBase
      *
      * @param $monolog
      *
-     * @return mixed
+     * @return Logger
      */
     private function setSlackHandler($monolog)
     {
@@ -123,7 +124,7 @@ class Plugin extends PluginBase
         $username   = Settings::get('slack_username', 'error-bot');
         $attachment = Settings::get('slack_attachment', false);
         $level      = Settings::get('slack_level', 100);
-        $handler    = new SlackHandler($token, $channel, $username, $attachment, null, $level, $bubble = false);
+        $handler    = new SlackHandler($token, $channel, $username, $attachment, null, $level);
         $monolog->pushHandler($handler);
 
         return $monolog;
@@ -134,7 +135,7 @@ class Plugin extends PluginBase
      *
      * @param $monolog
      *
-     * @return mixed
+     * @return Logger
      */
     private function setSyslogHandler($monolog)
     {
@@ -146,11 +147,32 @@ class Plugin extends PluginBase
         $ident    = Settings::get('syslog_ident');
         $facility = Settings::get('syslog_facility');
         $level    = Settings::get('syslog_level', 100);
-        $bubble   = true;
-        $handler  = new SyslogHandler($ident, $facility, $level, $bubble);
+        $handler  = new SyslogHandler($ident, $facility, $level);
         $monolog->pushHandler($handler);
 
-        return $handler;
+        return $monolog;
+    }
+
+    /**
+     * Set handler for New Relic
+     *
+     * @param $monolog
+     *
+     * @return Logger
+     */
+    private function setNewrelicHandler($monolog)
+    {
+        $required = ['newrelic_enabled', 'newrelic_appname'];
+        if (!$this->checkRequiredFields($required)) {
+            return $monolog;
+        }
+
+        $appname  = Settings::get('newrelic_appname');
+        $level    = Settings::get('newrelic_level', 100);
+        $handler  = new NewRelicHandler($level, $bubble = true, $appname);
+        $monolog->pushHandler($handler);
+
+        return $monolog;
     }
 
     /**
