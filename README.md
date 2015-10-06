@@ -9,7 +9,7 @@ Immediately sends an error from your OctoberCMS application to email, HipChat, M
 
 ## Installation
 
-1. Install plugin VojtaSvoboda.ErrorLogger
+1. Install plugin [VojtaSvoboda.ErrorLogger](http://octobercms.com/plugin/vojtasvoboda-errorlogger)
 2. Set your services at Backend > Settings > System > Error logger
 3. Save and sleep with a clear mind!
 
