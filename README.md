@@ -1,5 +1,9 @@
 # Error Logger plugin for OctoberCMS
 
+[![Codacy](https://img.shields.io/codacy/fd21835023b6413ca9a71815362ee22a.svg)](https://www.codacy.com/app/vojtasvoboda/oc-errorlogger-plugin)
+[![Scrutinizer Coverage](https://img.shields.io/scrutinizer/g/vojtasvoboda/oc-errorlogger-plugin.svg)](https://scrutinizer-ci.com/g/vojtasvoboda/oc-errorlogger-plugin/?branch=master)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/vojtasvoboda/oc-errorlogger-plugin/blob/master/LICENSE.md)
+
 Immediately sends an error from your OctoberCMS application to email, HipChat, Mandrill, NewRelic, Slack, Syslog, and more!
 
 - no plugin dependencies
@@ -21,10 +25,10 @@ _Waiting for implementation:_ CouchDB, Cube, ElasticSearch, FirePHP, Flowdock, H
 
 **Feel free to send pullrequest!**
 
-## License
-
-Error logger plugin is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT) same as OctoberCMS platform.
-
 ## Contributing
 
 Please send Pull Request to master branch.
+
+## License
+
+Error logger plugin is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT) same as OctoberCMS platform.

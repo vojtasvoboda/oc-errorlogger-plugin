@@ -26,10 +26,10 @@ class Plugin extends PluginBase
     public function pluginDetails()
     {
         return [
-            'name'        => 'vojtasvoboda.errorlogger::lang.plugin.name',
+            'name' => 'vojtasvoboda.errorlogger::lang.plugin.name',
             'description' => 'vojtasvoboda.errorlogger::lang.plugin.description',
-            'author'      => 'Vojta Svoboda',
-            'icon'        => 'icon-bug',
+            'author' => 'Vojta Svoboda',
+            'icon' => 'icon-bug',
         ];
     }
 
@@ -37,13 +37,13 @@ class Plugin extends PluginBase
     {
         return [
             'config' => [
-                'label'       => 'vojtasvoboda.errorlogger::lang.settings.label',
-                'category'    => 'system::lang.system.categories.system',
-                'icon'        => 'icon-bug',
+                'label' => 'vojtasvoboda.errorlogger::lang.settings.label',
+                'category' => 'system::lang.system.categories.system',
+                'icon' => 'icon-bug',
                 'description' => 'vojtasvoboda.errorlogger::lang.settings.description',
-                'class'       => 'VojtaSvoboda\ErrorLogger\Models\Settings',
+                'class' => 'VojtaSvoboda\ErrorLogger\Models\Settings',
                 'permissions' => ['vojtasvoboda.errorlogger.*'],
-                'order'       => 610,
+                'order' => 610,
             ]
         ];
     }
@@ -52,7 +52,7 @@ class Plugin extends PluginBase
     {
         return [
             'vojtasvoboda.errorlogger.*' => [
-                'tab'   => 'vojtasvoboda.errorlogger::lang.permissions.tab',
+                'tab' => 'vojtasvoboda.errorlogger::lang.permissions.tab',
                 'label' => 'vojtasvoboda.errorlogger::lang.permissions.all.label'
             ]
         ];
@@ -73,6 +73,10 @@ class Plugin extends PluginBase
 
     /**
      * Set native mailer handler
+     * 
+     * Formatting lines example (use before pushHandler()):
+     *   $formater = new LineFormatter("[%datetime%] %channel%.%level_name%: %message% %context% %extra%\n");
+     *   $handler->setFormatter($formater);
      *
      * @param $monolog
      *
@@ -91,15 +95,11 @@ class Plugin extends PluginBase
             return $monolog;
         }
 
-        $email   = Settings::get('nativemailer_email');
+        $email = Settings::get('nativemailer_email');
         $subject = Config::get('app.url') . ' - error report';
-        $from    = Config::get('mail.from.address');
-        $level   = Settings::get('nativemailer_level', 100);
+        $from = Config::get('mail.from.address');
+        $level = Settings::get('nativemailer_level', 100);
         $handler = new NativeMailerHandler($email, $subject, $from, $level);
-        /*
-        $formater = new LineFormatter("[%datetime%] %channel%.%level_name%: %message% %context% %extra%\n");
-        $handler->setFormatter($formater);
-        */
         $monolog->pushHandler($handler);
 
         return $monolog;
@@ -119,12 +119,12 @@ class Plugin extends PluginBase
             return $monolog;
         }
 
-        $token      = Settings::get('slack_token');
-        $channel    = Settings::get('slack_channel', 'random');
-        $username   = Settings::get('slack_username', 'error-bot');
+        $token = Settings::get('slack_token');
+        $channel = Settings::get('slack_channel', 'random');
+        $username = Settings::get('slack_username', 'error-bot');
         $attachment = Settings::get('slack_attachment', false);
-        $level      = Settings::get('slack_level', 100);
-        $handler    = new SlackHandler($token, $channel, $username, $attachment, null, $level);
+        $level = Settings::get('slack_level', 100);
+        $handler = new SlackHandler($token, $channel, $username, $attachment, null, $level);
         $monolog->pushHandler($handler);
 
         return $monolog;
@@ -144,10 +144,10 @@ class Plugin extends PluginBase
             return $monolog;
         }
 
-        $ident    = Settings::get('syslog_ident');
+        $ident = Settings::get('syslog_ident');
         $facility = Settings::get('syslog_facility');
-        $level    = Settings::get('syslog_level', 100);
-        $handler  = new SyslogHandler($ident, $facility, $level);
+        $level = Settings::get('syslog_level', 100);
+        $handler = new SyslogHandler($ident, $facility, $level);
         $monolog->pushHandler($handler);
 
         return $monolog;
@@ -167,9 +167,10 @@ class Plugin extends PluginBase
             return $monolog;
         }
 
-        $appname  = Settings::get('newrelic_appname');
-        $level    = Settings::get('newrelic_level', 100);
-        $handler  = new NewRelicHandler($level, $bubble = true, $appname);
+        $appname = Settings::get('newrelic_appname');
+        $level = Settings::get('newrelic_level', 100);
+        $bubble = true;
+        $handler = new NewRelicHandler($level, $bubble, $appname);
         $monolog->pushHandler($handler);
 
         return $monolog;
