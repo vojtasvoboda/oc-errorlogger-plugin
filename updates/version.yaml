@@ -1,3 +1,4 @@
 1.0.1: First version of Error Logger with Mailer handler, Slack handler and Syslog handler.
 1.0.2: Manage plugin permissions
 1.0.3: Add New Relic handler
+1.0.4: Add RU locale (thanks to Alexander Romanov)
