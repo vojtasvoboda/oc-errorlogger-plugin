@@ -4,7 +4,7 @@
 [![Scrutinizer Coverage](https://img.shields.io/scrutinizer/g/vojtasvoboda/oc-errorlogger-plugin.svg)](https://scrutinizer-ci.com/g/vojtasvoboda/oc-errorlogger-plugin/?branch=master)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/vojtasvoboda/oc-errorlogger-plugin/blob/master/LICENSE.md)
 
-Immediately sends an error from your OctoberCMS application to email, HipChat, Mandrill, NewRelic, Slack, Syslog, and more!
+Immediately sends an error from your OctoberCMS application to email, HipChat, Mandrill, NewRelic, Slack, Syslog, and more! Tested with the latest stable OctoberCMS build 349.
 
 - no plugin dependencies
 - easy setup, just fill your e-mail or API key
@@ -21,7 +21,7 @@ Immediately sends an error from your OctoberCMS application to email, HipChat, M
 
 _Available:_ Mailer handler, Slack handler, Syslog handler and New Relic handler.
 
-_Waiting for implementation:_ CouchDB, Cube, ElasticSearch, FirePHP, Flowdock, HipChat, IFTTT, Mandrill, MongoDB , Redis and more.
+_Waiting for implementation:_ CouchDB, Cube, ElasticSearch, FirePHP, Flowdock, HipChat, IFTTT, Mandrill, MongoDB, Redis and more.
 
 **Feel free to send pullrequest!**
 
