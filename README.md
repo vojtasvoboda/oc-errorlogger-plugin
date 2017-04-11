@@ -23,6 +23,8 @@ _Available:_ Mailer handler, Slack handler, Syslog handler and New Relic handler
 
 _Waiting for implementation:_ CouchDB, Cube, ElasticSearch, FirePHP, Flowdock, HipChat, IFTTT, Mandrill, MongoDB, Redis and more.
 
+**!! Important notice !!** Mailer handler uses plain PHP `mail()` function, not Laravel Mail::send() function! So any backend mailing settings doesn't make any impact.
+
 **Feel free to send pullrequest!**
 
 ## Contributing
