@@ -29,11 +29,17 @@ Swift Mailer handler using OctoberCMS mail configuration. To setup this hanlder 
 
 ## Contributing
 
-**Feel free to send pullrequest!**
-
 Please send Pull Request to master branch.
 
 _Handlers waiting for implementation:_ CouchDB, Cube, ElasticSearch, FirePHP, Flowdock, HipChat, IFTTT, MongoDB, Redis and more.
+
+## TODO
+
+- [ ] show button "Test" for trigger testing exception
+- [ ] add new tab with name '...' with listing all possible extensions (Sentry, Bugsnag)
+- [ ] can add more emails separated by comma
+
+**Feel free to send pullrequest!**
 
 ## License
 
