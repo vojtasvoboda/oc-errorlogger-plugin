@@ -10,6 +10,7 @@ use Monolog\Formatter\LineFormatter;
 use Monolog\Handler\NativeMailerHandler;
 use Monolog\Handler\NewRelicHandler;
 use Monolog\Handler\SlackHandler;
+use Monolog\Handler\SyslogHandler;
 use Monolog\Logger;
 use System\Classes\PluginBase;
 
