@@ -5,3 +5,4 @@
 1.0.5: Add DE locale (thanks to Tobias Kündig)
 1.0.6: Add ES locale (thanks to Salvador Pasquier)
 1.0.7: Fix loading SyslogHandler class.
+1.0.8: Fix Chrome 'An invalid form control with name…is not focusable' exception.

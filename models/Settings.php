@@ -18,7 +18,13 @@ class Settings extends Model
     public $settingsFields = 'fields.yaml';
 
     public $rules = [
-        // 'nativemailer_email' => 'email',
+        'nativemailer_email' => 'required_if:nativemailer_enabled,1',
+        'slack_token' => 'required_if:slack_enabled,1',
+        'slack_channel' => 'required_if:slack_enabled,1',
+        'slack_username' => 'required_if:slack_enabled,1',
+        'syslog_ident' => 'required_if:syslog_enabled,1',
+        'syslog_facility' => 'required_if:syslog_enabled,1',
+        'newrelic_appname' => 'required_if:newrelic_enabled,1',
     ];
 
     public $attributeNames = [

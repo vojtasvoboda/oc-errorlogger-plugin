@@ -1,6 +1,5 @@
 tabs:
     fields:
-
         nativemailer_enabled:
             tab: vojtasvoboda.errorlogger::lang.nativemailer.tab.label
             type: switch
@@ -8,7 +7,6 @@ tabs:
         nativemailer_email:
             tab: vojtasvoboda.errorlogger::lang.nativemailer.tab.label
             label: vojtasvoboda.errorlogger::lang.nativemailer.email.label
-            required: true
             commentAbove: vojtasvoboda.errorlogger::lang.nativemailer.email.comment
             default: '@'
             trigger:
@@ -41,7 +39,6 @@ tabs:
         slack_token:
             tab: vojtasvoboda.errorlogger::lang.slack.tab.label
             label: vojtasvoboda.errorlogger::lang.slack.token.label
-            required: true
             commentAbove: vojtasvoboda.errorlogger::lang.slack.token.comment
             trigger:
                     action: show
@@ -50,7 +47,6 @@ tabs:
         slack_channel:
             tab: vojtasvoboda.errorlogger::lang.slack.tab.label
             label: vojtasvoboda.errorlogger::lang.slack.channel.label
-            required: true
             commentAbove: vojtasvoboda.errorlogger::lang.slack.channel.comment
             trigger:
                     action: show
@@ -59,7 +55,6 @@ tabs:
         slack_username:
             tab: vojtasvoboda.errorlogger::lang.slack.tab.label
             label: vojtasvoboda.errorlogger::lang.slack.username.label
-            required: true
             commentAbove: vojtasvoboda.errorlogger::lang.slack.username.comment
             trigger:
                     action: show
@@ -91,7 +86,6 @@ tabs:
         syslog_ident:
             tab: vojtasvoboda.errorlogger::lang.syslog.tab.label
             label: vojtasvoboda.errorlogger::lang.syslog.ident.label
-            required: true
             commentAbove: vojtasvoboda.errorlogger::lang.syslog.ident.comment
             trigger:
                     action: show
@@ -100,7 +94,6 @@ tabs:
         syslog_facility:
             tab: vojtasvoboda.errorlogger::lang.syslog.tab.label
             label: vojtasvoboda.errorlogger::lang.syslog.facility.label
-            required: true
             commentAbove: vojtasvoboda.errorlogger::lang.syslog.facility.comment
             trigger:
                     action: show
@@ -123,7 +116,6 @@ tabs:
         newrelic_appname:
             tab: vojtasvoboda.errorlogger::lang.newrelic.tab.label
             label: vojtasvoboda.errorlogger::lang.newrelic.appname.label
-            required: true
             commentAbove: vojtasvoboda.errorlogger::lang.newrelic.appname.comment
             trigger:
                     action: show
