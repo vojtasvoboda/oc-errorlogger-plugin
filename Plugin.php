@@ -4,6 +4,7 @@ namespace VojtaSvoboda\ErrorLogger;
 
 use Backend\Facades\BackendAuth;
 use Config;
+use Illuminate\Log\Writer;
 use Log;
 use VojtaSvoboda\ErrorLogger\Models\Settings;
 use Monolog\Formatter\LineFormatter;
@@ -64,7 +65,8 @@ class Plugin extends PluginBase
      */
     public function boot()
     {
-        $monolog = Log::getMonolog();
+        $laravel8 = method_exists(Writer::class, 'getLogger');
+        $monolog = $laravel8 ? Log::getLogger() : Log::getMonolog();
 
         $this->setNativeMailerHandler($monolog);
         $this->setSlackHandler($monolog);
@@ -80,7 +82,6 @@ class Plugin extends PluginBase
      *   $handler->setFormatter($formater);
      *
      * @param $monolog
-     *
      * @return Logger
      */
     private function setNativeMailerHandler($monolog)
@@ -110,7 +111,6 @@ class Plugin extends PluginBase
      * Set handler for Slack messaging app
      *
      * @param $monolog
-     *
      * @return Logger
      */
     private function setSlackHandler($monolog)
@@ -135,7 +135,6 @@ class Plugin extends PluginBase
      * Set handler for Syslog
      *
      * @param $monolog
-     *
      * @return Logger
      */
     private function setSyslogHandler($monolog)
@@ -158,7 +157,6 @@ class Plugin extends PluginBase
      * Set handler for New Relic
      *
      * @param $monolog
-     *
      * @return Logger
      */
     private function setNewrelicHandler($monolog)
@@ -181,7 +179,6 @@ class Plugin extends PluginBase
      * Check each required field if exist and not empty
      *
      * @param array $fields
-     *
      * @return bool
      */
     private function checkRequiredFields(array $fields)
