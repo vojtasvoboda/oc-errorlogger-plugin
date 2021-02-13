@@ -64,7 +64,8 @@ class Plugin extends PluginBase
      */
     public function boot()
     {
-        $monolog = Log::getMonolog();
+        $isLaravel56OrUp = method_exists(\Illuminate\Log\Logger::class, 'getLogger');
+        $monolog = $isLaravel56OrUp ? Log::getLogger() : Log::getMonolog();
 
         $this->setNativeMailerHandler($monolog);
         $this->setSlackHandler($monolog);
